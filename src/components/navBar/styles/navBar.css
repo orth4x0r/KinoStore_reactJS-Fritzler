@@ -1,0 +1,23 @@
+/* create css style for navbar components */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: rgb(228, 159, 255);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  height: 3rem;
+}
+
+/* create style called navBar__list for the list of links */
+.navBar__list {
+  display: flex;
+  list-style: none;
+  margin: 128px;
+  padding-left: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navBar__items {
+  padding-right: 0 2rem;
+}	
