@@ -21,6 +21,7 @@ const films = [
 
 export const ItemDetailContainer = () => {
     const [data, setData] = useState([]);
+
     const { detalleId } = useParams();
 
 
@@ -30,10 +31,14 @@ export const ItemDetailContainer = () => {
                 resolve(films);
             }, 2000);
         });
-        getData.then((result) => {
-            setData(result.find((film) => film.id === parseInt(detalleId)));
-        });
-    }, [detalleId])
+        getData.then((result) => setData(result.find((film) => film.id === parseInt(detalleId)))
+        );
+    }, [])
+
+    /* what could be the reason that itemDetailContainer isnt rendering */
+
+
+    
     
 
 
