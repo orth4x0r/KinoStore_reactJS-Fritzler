@@ -5,7 +5,7 @@ import './App.css';
 
 import ItemDetailContainer from './components/itemDetailContainer';
 import Cart from './components/cart';
-import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 
