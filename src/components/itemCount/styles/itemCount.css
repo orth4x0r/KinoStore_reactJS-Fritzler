@@ -1,0 +1,9 @@
+/* create css class "counter", background gold */
+
+.counter {
+    width: fit-content;  
+    background: gold;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+}

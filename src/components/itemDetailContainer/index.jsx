@@ -1,9 +1,9 @@
+import './styles/itemDetailContainer.css';
+import React, {useEffect, useState} from 'react';
+import ItemDetail from '../itemDetail';
+import { useParams } from 'react-router-dom';
 
-import React, {useState, useEffect} from "react";
-import ItemCount from "../itemCount";
-import ItemList from "../itemList";
-import Title from "../title";
-import { useParams } from "react-router-dom";
+
 
 const films = [
     { id: 1, image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xnaDdiRfZlJaTf6JRc4in40eaeI.jpg", title: "Saló, o los 120 días de Sodoma", year: 1975, directedBy: "Pier Paolo Pasolini" , category: "films"},
@@ -18,41 +18,31 @@ const films = [
     { id: 10, image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mbA77wY7fjh2TSQ3FxEuqpKOOA8.jpg", title: "Hard Boiled", year: 1992, directedBy: "John Woo" , category: "flicks"}
 ];
 
-export const ItemListContainer = (props) => {
 
+export const ItemDetailContainer = () => {
     const [data, setData] = useState([]);
+    const { detalleId } = useParams();
 
-    const {categoriaId} = useParams();
 
-    useEffect(() => {
+    useEffect(() => { 
         const getData = new Promise(resolve => {
             setTimeout(() => {
                 resolve(films);
-            }, 1000);
+            }, 2000);
         });
-        if (categoriaId) {
-            getData.then((result) => setData(result.filter((item) => item.category === categoriaId)));
-        } else {
-            getData.then((result) => setData(result));
-
-        }
-
-    }, [categoriaId])
-
-        
-    const onAdd = (quantity) => {
+        getData.then((result) => {
+            setData(result.find((film) => film.id === parseInt(detalleId)));
+        });
+    }, [detalleId])
     
-        console.log(`Compraste ${quantity} productos`);
 
-    }
+
     return (
-        <>  
-            <Title greeting={props.texto} />
-            <ItemCount initial={1} stock={10} onAdd={onAdd} />
-            <ItemList data={data}/>
-        </>
+
+        <ItemDetail data={data}/>
+
     );
 }
 
-export default ItemListContainer;
- 
+export default ItemDetailContainer;
+

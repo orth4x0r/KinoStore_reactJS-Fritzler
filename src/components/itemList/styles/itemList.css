@@ -1,0 +1,6 @@
+/* create a class that will put all the items in a responsive grid */
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
