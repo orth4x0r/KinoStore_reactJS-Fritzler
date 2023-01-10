@@ -41,8 +41,8 @@ import { Link } from 'react-router-dom';
           if(form.name === '' && form.email === '') {
               toast.error("Todos los campos son requeridos")
             }
-            else if(!isEmailsMatched){
-              console.log("Los correos electrónicos no coinciden!");
+            else if(isEmailsMatched){
+              //console.log("Los correos electrónicos no coinciden!");
               return;
             }
             else {
@@ -71,10 +71,12 @@ import { Link } from 'react-router-dom';
         // Hago copia del form
         const changeHandler = (ev) => {
             const {value, name} = ev.target;
+            setForm({...form, [name]:value})
             if (name === "email" || name === "email2") {
               setIsEmailsMatched(form.email === form.email2);
+              
             }
-            setForm({...form, [name]:value})
+
         }
         
         return (
