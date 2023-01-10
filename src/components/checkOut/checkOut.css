@@ -1,0 +1,69 @@
+.message-dad{
+    text-align: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.message{
+    font-size: 24px;
+    color: green;
+}
+.button-message{
+    padding: 8px 30px 8px 30px;
+    border-radius: 50px;
+    border: 1px solid rgb(65, 65, 65);
+    font-size: 18px;
+    background-color: rgb(251, 255, 223);
+    margin-right: 2em;
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+.div-full{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 580px;
+    border: 2px solid rgb(65, 65, 65);
+    width: 500px;
+    margin-bottom: 4em;
+    margin-top: 4em;
+    background-color: rgb(250, 255, 241);
+}
+
+
+.label-1{
+    font-size: 18px;
+
+    
+}
+
+.input-duo{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+.input-duo-2{
+    margin-left: 1.2em;
+}
+
+.submit-button{
+    padding: 10px 50px 10px 50px;
+    border: 1px solid rgb(65, 65, 65);
+    background-color: rgb(189, 189, 189);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.title-compra{
+    margin-bottom: 3em;
+}
