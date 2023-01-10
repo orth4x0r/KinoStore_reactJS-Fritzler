@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 
     const CheckOut = () => {
         const [id , setId] = useState()
+        const [isEmailsMatched, setIsEmailsMatched] = useState(true);
         const [form, setForm] = useState({
 
         name: '',
@@ -39,9 +40,12 @@ import { Link } from 'react-router-dom';
         e.preventDefault()
           if(form.name === '' && form.email === '') {
               toast.error("Todos los campos son requeridos")
-            }else if (form.email !== form.email2) {
-              toast.error("Los emails no coinciden")
-            }else{
+            }
+            else if(!isEmailsMatched){
+              console.log("Los correos electrónicos no coinciden!");
+              return;
+            }
+            else {
               const db = getFirestore();
               const ordersCollection = collection(db, 'orders')
                 addDoc(ordersCollection, compra)
@@ -67,6 +71,9 @@ import { Link } from 'react-router-dom';
         // Hago copia del form
         const changeHandler = (ev) => {
             const {value, name} = ev.target;
+            if (name === "email" || name === "email2") {
+              setIsEmailsMatched(form.email === form.email2);
+            }
             setForm({...form, [name]:value})
         }
         
@@ -80,6 +87,7 @@ import { Link } from 'react-router-dom';
             ) : (
               
               <form onSubmit={finishClick} className='form'>
+                {isEmailsMatched && <p style={{color: "red"}}>Los campos de correo electrónico no coinciden</p>}
                 <div>
                     <h2 className="title-compra">Formulario de Compra</h2>
                   <label htmlFor="name" className="label-1">Nombre: </label>
@@ -123,7 +131,7 @@ import { Link } from 'react-router-dom';
                     className='input-duo'
                   ></textarea>
                 </div>
-                <button className="submit-button">Enviar</button>
+                <button disabled={isEmailsMatched} className="submit-button">Enviar</button>
               </form>
             )}
           </div>
