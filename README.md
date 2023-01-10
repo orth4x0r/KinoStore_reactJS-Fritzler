@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Proyecto KinoStore ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La idea es hacer un ecommerce basico para una tienda de films de culto
+Contiene ya varias categorias, un formulario para el envio de los pedidos, carts y etc.
 
-## Available Scripts
+# Documentacion
+## Librerias
 
-In the project directory, you can run:
+ * React-router-dom (para Routear las cositas)
+ * React-hot-toast (Para tirar notificaciones, util para saber que ondis)
 
-### `npm start`
+## Base de Datos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Estamos utilizando Firebase, y para las imagenes simplemente usamos las de tMDB (the movie database, alternativa abierta (no FOSS) a iMDB)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Estructura
 
-### `npm test`
+ Importamos firebase/config en index.js, y el resto va en App.jsx
+ App.jsx funciona de parent del resto de los componentes y contextos
+ Utilizamos react router dom para el routeo en vez de usar HREFs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ Los contenedores itemDetailContainer y itemListContainer hacen exactamente lo que dicen los nombres, sirven de contenedores para traer toda la info de firebase y mostrarla
 
-### `npm run build`
+ -Item
+ -ItemDetail
+ -ItemList
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ Estos componentes muestran las cosas de por si
+ Con CartProvider hacemos todo lo que implique pasar info de un lado para otro para poder hacer las cositas con el carrito de compras
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ Una vez que tengamos todo seleccionado vamos a terminar compra y eso nos lleva a la pagina de checkout, donde metemos nuestros datos y se nos da un ID de compra para poder seguirla
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Saludos!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 

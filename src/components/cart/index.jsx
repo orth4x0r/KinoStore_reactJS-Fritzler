@@ -30,7 +30,6 @@ const Cart = () => {
         const db = getFirestore();
         const ordersCollection = collection(db, 'orders');
         addDoc(ordersCollection, order)
-            .then(({ id }) => console.log( id ))
 
     }
 

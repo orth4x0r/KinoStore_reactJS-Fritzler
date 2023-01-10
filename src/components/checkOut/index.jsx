@@ -49,19 +49,19 @@ import { Link } from 'react-router-dom';
               const db = getFirestore();
               const ordersCollection = collection(db, 'orders')
                 addDoc(ordersCollection, compra)
-                .then(( res ) => {
-                  toast.success(`Su Compra ${res.id} se realizó Correctamente`, {
+                .then(( producto ) => {
+                  toast.success(`Su Compra ${producto.id} salio bien! Saludos`, {
                     style: {
-                      border: '1px solid #713200',
-                      padding: '16px',
-                      color: '#713200',
+                      border: '2px solid #713200',
+                      padding: '25px',
+                      color: '#EF9EFF',
                     },
                     iconTheme: {
                       primary: '#713200',
                       secondary: '#FFFAEE',
                     },
                   });
-                  setId(res.id)
+                  setId(producto.id)
                 clearCart();
                  })   
               
